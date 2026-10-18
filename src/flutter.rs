@@ -170,7 +170,7 @@ pub extern "C" fn rustdesk_core_main_args(args_len: *mut c_int) -> *mut *mut c_c
 #[cfg(windows)]
 #[no_mangle]
 pub extern "C" fn rustdesk_is_disable_installation() -> c_int {
-    hbb_common::config::is_disable_installation() as c_int
+    1
 }
 
 // https://gist.github.com/iskakaushik/1c5b8aa75c77479c33c4320913eebef6

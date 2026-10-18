@@ -2551,7 +2551,7 @@ pub fn is_disable_group_panel() -> SyncReturn<bool> {
 
 // windows only
 pub fn is_disable_installation() -> SyncReturn<bool> {
-    SyncReturn(config::is_disable_installation())
+    SyncReturn(true)
 }
 
 pub fn is_preset_password() -> bool {
