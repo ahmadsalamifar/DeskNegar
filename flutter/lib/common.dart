@@ -557,10 +557,10 @@ class MyTheme {
     radioTheme: radioTheme(),
     checkboxTheme: checkboxTheme,
     listTileTheme: listTileTheme,
-    menuBarTheme: const MenuBarThemeData(
+    menuBarTheme: MenuBarThemeData(
         style: MenuStyle(
             backgroundColor: MaterialStatePropertyAll(Color(0xFF0F172A)))),
-    colorScheme: const ColorScheme.dark(
+    colorScheme: ColorScheme.dark(
       primary: Color(0xFF2563EB),
       secondary: Color(0xFF38BDF8),
       background: Color(0xFF0F172A),
