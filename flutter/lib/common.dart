@@ -249,18 +249,18 @@ class ColorThemeExtension extends ThemeExtension<ColorThemeExtension> {
 class MyTheme {
   MyTheme._();
 
-  static const Color grayBg = Color(0xFFEFEFF2);
+  static const Color grayBg = Color(0xFFF1F5F9);
   static const Color accent = Color(0xFF2563EB);
   static const Color accent50 = Color(0x772563EB);
   static const Color accent80 = Color(0xAA2563EB);
-  static const Color canvasColor = Color(0xFF212121);
-  static const Color border = Color(0xFFCCCCCC);
+  static const Color canvasColor = Color(0xFF0F172A);
+  static const Color border = Color(0xFFCBD5E1);
   static const Color idColor = Color(0xFF0284C7);
-  static const Color darkGray = Color.fromARGB(255, 148, 148, 148);
-  static const Color cmIdColor = Color(0xFF21790B);
-  static const Color dark = Colors.black87;
+  static const Color darkGray = Color(0xFF64748B);
+  static const Color cmIdColor = Color(0xFF059669);
+  static const Color dark = Color(0xFF0F172A);
   static const Color button = Color(0xFF1D4ED8);
-  static const Color hoverBorder = Color(0xFF999999);
+  static const Color hoverBorder = Color(0xFF94A3B8);
 
   // ListTile
   static const ListTileThemeData listTileTheme = ListTileThemeData(
@@ -374,10 +374,10 @@ class MyTheme {
     // https://stackoverflow.com/questions/77537315/after-upgrading-to-flutter-3-16-the-app-bar-background-color-button-size-and
     useMaterial3: false,
     brightness: Brightness.light,
-    hoverColor: Color.fromARGB(255, 224, 224, 224),
-    scaffoldBackgroundColor: Colors.white,
+    hoverColor: const Color(0xFFE2E8F0),
+    scaffoldBackgroundColor: const Color(0xFFF8FAFC),
     dialogBackgroundColor: Colors.white,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       shadowColor: Colors.transparent,
     ),
     dialogTheme: DialogTheme(
@@ -472,26 +472,26 @@ class MyTheme {
   static ThemeData darkTheme = ThemeData(
     useMaterial3: false,
     brightness: Brightness.dark,
-    hoverColor: Color.fromARGB(255, 45, 46, 53),
-    scaffoldBackgroundColor: Color(0xFF18191E),
-    dialogBackgroundColor: Color(0xFF18191E),
-    appBarTheme: AppBarTheme(
+    hoverColor: const Color(0xFF1E293B),
+    scaffoldBackgroundColor: const Color(0xFF0F172A),
+    dialogBackgroundColor: const Color(0xFF1E293B),
+    appBarTheme: const AppBarTheme(
       shadowColor: Colors.transparent,
     ),
     dialogTheme: DialogTheme(
       elevation: 15,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(18.0),
-        side: BorderSide(
+        side: const BorderSide(
           width: 1,
-          color: Color(0xFF24252B),
+          color: Color(0xFF334155),
         ),
       ),
     ),
     scrollbarTheme: scrollbarThemeDark,
     inputDecorationTheme: (isDesktop || isWebDesktop)
         ? InputDecorationTheme(
-            fillColor: Color(0xFF24252B),
+            fillColor: const Color(0xFF1E293B),
             filled: true,
             isDense: true,
             border: OutlineInputBorder(
@@ -510,7 +510,7 @@ class MyTheme {
         color: accent80,
       ),
     ),
-    cardColor: Color(0xFF24252B),
+    cardColor: const Color(0xFF1E293B),
     visualDensity: VisualDensity.adaptivePlatformDensity,
     tabBarTheme: const TabBarTheme(
       labelColor: Colors.white70,
@@ -544,8 +544,8 @@ class MyTheme {
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
-        backgroundColor: Color(0xFF24252B),
-        side: BorderSide(color: Colors.white12, width: 0.5),
+        backgroundColor: const Color(0xFF1E293B),
+        side: const BorderSide(color: Color(0xFF334155), width: 0.5),
         disabledForegroundColor: Colors.white70,
         foregroundColor: Colors.white70,
         shape: RoundedRectangleBorder(
@@ -557,13 +557,13 @@ class MyTheme {
     radioTheme: radioTheme(),
     checkboxTheme: checkboxTheme,
     listTileTheme: listTileTheme,
-    menuBarTheme: MenuBarThemeData(
+    menuBarTheme: const MenuBarThemeData(
         style: MenuStyle(
-            backgroundColor: MaterialStatePropertyAll(Color(0xFF121212)))),
-    colorScheme: ColorScheme.dark(
-      primary: Colors.blue,
-      secondary: accent,
-      background: Color(0xFF24252B),
+            backgroundColor: MaterialStatePropertyAll(Color(0xFF0F172A)))),
+    colorScheme: const ColorScheme.dark(
+      primary: Color(0xFF2563EB),
+      secondary: Color(0xFF38BDF8),
+      background: Color(0xFF0F172A),
     ),
     popupMenuTheme: PopupMenuThemeData(
         shape: RoundedRectangleBorder(
