@@ -489,10 +489,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
           bind.mainGotoInstall();
         });
       }
-    }
-    return const SizedBox.shrink();
-  }
-      final isOutgoingOnly = bind.isOutgoingOnly();
+    } else if (isMacOS) {
       if (!(isOutgoingOnly || bind.mainIsCanScreenRecording(prompt: false))) {
         return buildInstallCard("Permissions", "config_screen", "Configure",
             () async {
