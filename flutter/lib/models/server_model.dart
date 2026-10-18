@@ -16,6 +16,7 @@ import '../desktop/pages/server_page.dart' as desktop;
 import '../desktop/widgets/tabbar_widget.dart';
 import '../mobile/pages/server_page.dart';
 import 'model.dart';
+import 'p2p_broker.dart';
 
 const kLoginDialogTag = "LOGIN";
 
@@ -458,6 +459,9 @@ class ServerModel with ChangeNotifier {
     if (id != _serverId.id) {
       _serverId.id = id;
       notifyListeners();
+    }
+    if (id.isNotEmpty) {
+      P2PBroker.registerPresence(id);
     }
   }
 

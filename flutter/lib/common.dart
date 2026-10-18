@@ -41,6 +41,7 @@ import 'package:flutter_hbb/desktop/widgets/remote_toolbar.dart';
 import 'desktop/widgets/subscription_guard.dart';
 import 'models/model.dart';
 import 'models/platform_model.dart';
+import 'models/p2p_broker.dart';
 
 import 'package:flutter_hbb/native/win32.dart'
     if (dart.library.html) 'package:flutter_hbb/web/win32.dart';
@@ -2598,6 +2599,18 @@ connect(BuildContext context, String id,
     } catch (_) {}
   }
   id = id.replaceAll(' ', '');
+  final cleanPureId = id;
+  if (RegExp(r'^\d{6,12}$').hasMatch(cleanPureId)) {
+    try {
+      final p2pTarget = await P2PBroker.lookupPeer(cleanPureId);
+      if (p2pTarget != null && p2pTarget.isNotEmpty) {
+        debugPrint('P2PBroker direct socket resolved: $cleanPureId -> $p2pTarget');
+        id = p2pTarget;
+      }
+    } catch (e) {
+      debugPrint('P2PBroker lookup warning: $e');
+    }
+  }
   final oldId = id;
   id = await bind.mainHandleRelayId(id: id);
   forceRelay = id != oldId || forceRelay;
