@@ -220,7 +220,13 @@ class _DesktopHomePageState extends State<DesktopHomePage>
                                   ?.color
                                   ?.withOpacity(0.5)),
                         ).marginOnly(top: 5),
-                        buildPopupMenu(context)
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            buildThemeToggle(context).marginOnly(right: 4),
+                            buildPopupMenu(context),
+                          ],
+                        ),
                       ],
                     ),
                   ),
@@ -250,6 +256,36 @@ class _DesktopHomePageState extends State<DesktopHomePage>
           ),
         ],
       ),
+    );
+  }
+
+  Widget buildThemeToggle(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final textColor = Theme.of(context).textTheme.titleLarge?.color;
+    RxBool hover = false.obs;
+    return InkWell(
+      onTap: () async {
+        final newMode = isDark ? ThemeMode.light : ThemeMode.dark;
+        await MyTheme.changeDarkMode(newMode);
+        setState(() {});
+      },
+      child: Tooltip(
+        message: isDark ? translate('Light') : translate('Dark'),
+        child: Obx(
+          () => CircleAvatar(
+            radius: 15,
+            backgroundColor: hover.value
+                ? Theme.of(context).scaffoldBackgroundColor
+                : Theme.of(context).colorScheme.background,
+            child: Icon(
+              isDark ? Icons.light_mode_outlined : Icons.dark_mode_outlined,
+              size: 18,
+              color: hover.value ? textColor : textColor?.withOpacity(0.6),
+            ),
+          ),
+        ),
+      ),
+      onHover: (value) => hover.value = value,
     );
   }
 

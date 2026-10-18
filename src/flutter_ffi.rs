@@ -2542,7 +2542,7 @@ pub fn is_disable_ab() -> SyncReturn<bool> {
 }
 
 pub fn is_disable_account() -> SyncReturn<bool> {
-    SyncReturn(config::is_disable_account())
+    SyncReturn(true)
 }
 
 pub fn is_disable_group_panel() -> SyncReturn<bool> {
